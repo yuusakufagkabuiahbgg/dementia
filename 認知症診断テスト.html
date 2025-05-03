@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>認知症セルフチェックテスト</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        
+        .question {
+            margin-bottom: 30px;
+            display: none;
+        }
+        
+        .question.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        .question-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .options {
+            margin-left: 20px;
+        }
+        
+        .option {
+            margin-bottom: 10px;
+        }
+        
+        label {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto 0;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        #result {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .low-risk {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .medium-risk {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+        
+        .high-risk {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .result-title {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .result-score {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .result-description {
+            margin-bottom: 20px;
+        }
+        
+        .consultation {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #e7f4fd;
+            border-radius: 5px;
+        }
+        
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background-color: #3498db;
+            border-radius: 5px;
+            width: 20%;
+            transition: width 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>認知症セルフチェックテスト</h1>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progress"></div>
+        </div>
+        
+        <div class="question active" id="question1">
+            <div class="question-title">チェック①</div>
+            <div class="question-text">財布や鍵など、物を置いた場所がわからなくなることがありますか？</div>
+            <div class="options">
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q1" value="1" required>
+                        まったくない（1点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q1" value="2">
+                        ときどきある（2点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q1" value="3">
+                        いつもそうだ（3点）
+                    </label>
+                </div>
+            </div>
+            <button onclick="nextQuestion(1)">次へ</button>
+        </div>
+        
+        <div class="question" id="question2">
+            <div class="question-title">チェック②</div>
+            <div class="question-text">5分前に聞いた話を思い出せないことがありますか？</div>
+            <div class="options">
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q2" value="1" required>
+                        まったくない（1点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q2" value="2">
+                        ときどきある（2点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q2" value="3">
+                        いつもそうだ（3点）
+                    </label>
+                </div>
+            </div>
+            <button onclick="nextQuestion(2)">次へ</button>
+        </div>
+        
+        <div class="question" id="question3">
+            <div class="question-title">チェック③</div>
+            <div class="question-text">周りの人から「いつも同じ事を聞く」などのもの忘れがあると言われますか？</div>
+            <div class="options">
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q3" value="1" required>
+                        まったくない（1点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q3" value="2">
+                        ときどきある（2点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q3" value="3">
+                        いつもそうだ（3点）
+                    </label>
+                </div>
+            </div>
+            <button onclick="nextQuestion(3)">次へ</button>
+        </div>
+        
+        <div class="question" id="question4">
+            <div class="question-title">チェック④</div>
+            <div class="question-text">今日が何月何日かわからないときがありますか？</div>
+            <div class="options">
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q4" value="1" required>
+                        まったくない（1点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q4" value="2">
+                        ときどきある（2点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q4" value="3">
+                        いつもそうだ（3点）
+                    </label>
+                </div>
+            </div>
+            <button onclick="nextQuestion(4)">次へ</button>
+        </div>
+        
+        <div class="question" id="question5">
+            <div class="question-title">チェック⑤</div>
+            <div class="question-text">言おうとしている言葉が、すぐに出てこないことがありますか？</div>
+            <div class="options">
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q5" value="1" required>
+                        まったくない（1点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q5" value="2">
+                        ときどきある（2点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q5" value="3">
+                        いつもそうだ（3点）
+                    </label>
+                </div>
+            </div>
+            <button onclick="showResult()">結果を見る</button>
+        </div>
+        
+        <div id="result">
+            <div class="result-title">あなたのセルフチェック結果</div>
+            <div class="result-score">総合スコア: <span id="score"></span>点 / 15点</div>
+            <div class="result-description" id="result-description"></div>
+            
+            <div class="consultation">
+                <p>もし何か相談したいことがございましたら、下記のフォームからご相談くださいませ。</p>
+                <p>後日お電話させていただきます。</p>
+                <p><a href="https://forms.gle/kDsz1DgPcLUteNPA9" target="_blank">ご相談フォーム</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentScore = 0;
+        
+        function nextQuestion(questionNumber) {
+            // Validate answer
+            const selectedOption = document.querySelector(`input[name="q${questionNumber}"]:checked`);
+            
+            if (!selectedOption) {
+                alert("回答を選択してください");
+                return;
+            }
+            
+            // Add to score
+            currentScore += parseInt(selectedOption.value);
+            
+            // Hide current question
+            document.getElementById(`question${questionNumber}`).classList.remove('active');
+            
+            // Show next question
+            document.getElementById(`question${questionNumber + 1}`).classList.add('active');
+            
+            // Update progress bar
+            const progress = document.getElementById('progress');
+            progress.style.width = `${(questionNumber) * 20}%`;
+        }
+        
+        function showResult() {
+            // Validate last answer
+            const selectedOption = document.querySelector('input[name="q5"]:checked');
+            
+            if (!selectedOption) {
+                alert("回答を選択してください");
+                return;
+            }
+            
+            // Add to score
+            currentScore += parseInt(selectedOption.value);
+            
+            // Hide last question
+            document.getElementById('question5').classList.remove('active');
+            
+            // Update progress bar to 100%
+            const progress = document.getElementById('progress');
+            progress.style.width = '100%';
+            
+            // Update score text
+            document.getElementById('score').textContent = currentScore;
+            
+            // Set result class and description based on score
+            const result = document.getElementById('result');
+            const resultDescription = document.getElementById('result-description');
+            
+            if (currentScore <= 7) {
+                result.className = 'low-risk';
+                resultDescription.innerHTML = `
+                    <p>現時点では認知症の可能性は低いと考えられます。</p>
+                    <p>健康的な生活習慣を続け、定期的な認知機能チェックをおすすめします。</p>
+                `;
+            } else if (currentScore <= 11) {
+                result.className = 'medium-risk';
+                resultDescription.innerHTML = `
+                    <p>軽度の認知機能の低下が見られる可能性があります。</p>
+                    <p>念のため、医療機関での詳しい検査をご検討ください。</p>
+                `;
+            } else {
+                result.className = 'high-risk';
+                resultDescription.innerHTML = `
+                    <p>認知機能の低下が見られる可能性が高いです。</p>
+                    <p>早めに専門医への受診をおすすめします。</p>
+                `;
+            }
+            
+            // Show result
+            result.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
