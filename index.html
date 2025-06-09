@@ -145,7 +145,7 @@
             height: 100%;
             background-color: #3498db;
             border-radius: 5px;
-            width: 8.33%;
+            width: 5%;
             transition: width 0.3s ease;
         }
         
@@ -166,7 +166,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>認知症セルフチェックテスト（全12問）</h1>
+        <h1>認知症セルフチェックテスト（全20問）</h1>
         
         <div class="progress-container">
             <div class="progress-bar" id="progress"></div>
@@ -481,12 +481,220 @@
                     </label>
                 </div>
             </div>
+            <button onclick="nextQuestion(12)">次へ</button>
+        </div>
+        
+        <div class="question" id="question13">
+            <div class="question-title">チェック⑬</div>
+            <div class="question-text">複雑な会話についていくことが難しいと感じることがありますか？</div>
+            <div class="options">
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q13" value="1" required>
+                        まったくない（1点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q13" value="2">
+                        ときどきある（2点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q13" value="3">
+                        いつもそうだ（3点）
+                    </label>
+                </div>
+            </div>
+            <button onclick="nextQuestion(13)">次へ</button>
+        </div>
+        
+        <div class="question" id="question14">
+            <div class="question-title">チェック⑭</div>
+            <div class="question-text">趣味や以前楽しんでいた活動への興味が薄れたと感じることがありますか？</div>
+            <div class="options">
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q14" value="1" required>
+                        まったくない（1点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q14" value="2">
+                        ときどきある（2点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q14" value="3">
+                        いつもそうだ（3点）
+                    </label>
+                </div>
+            </div>
+            <button onclick="nextQuestion(14)">次へ</button>
+        </div>
+        
+        <div class="question" id="question15">
+            <div class="question-title">チェック⑮</div>
+            <div class="question-text">決断や選択をすることが以前より難しくなったと感じますか？</div>
+            <div class="options">
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q15" value="1" required>
+                        まったくない（1点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q15" value="2">
+                        ときどきある（2点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q15" value="3">
+                        いつもそうだ（3点）
+                    </label>
+                </div>
+            </div>
+            <button onclick="nextQuestion(15)">次へ</button>
+        </div>
+        
+        <div class="question" id="question16">
+            <div class="question-title">チェック⑯</div>
+            <div class="question-text">以前はできていた簡単な作業や家事をこなすのに時間がかかるようになりましたか？</div>
+            <div class="options">
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q16" value="1" required>
+                        まったくない（1点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q16" value="2">
+                        ときどきある（2点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q16" value="3">
+                        いつもそうだ（3点）
+                    </label>
+                </div>
+            </div>
+            <button onclick="nextQuestion(16)">次へ</button>
+        </div>
+        
+        <div class="question" id="question17">
+            <div class="question-title">チェック⑰</div>
+            <div class="question-text">物の名前や適切な言葉が思い出せず、「あれ」「それ」などの言葉で代用することが増えましたか？</div>
+            <div class="options">
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q17" value="1" required>
+                        まったくない（1点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q17" value="2">
+                        ときどきある（2点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q17" value="3">
+                        いつもそうだ（3点）
+                    </label>
+                </div>
+            </div>
+            <button onclick="nextQuestion(17)">次へ</button>
+        </div>
+        
+        <div class="question" id="question18">
+            <div class="question-title">チェック⑱</div>
+            <div class="question-text">同じものを重複して購入したり、必要なものを買い忘れたりすることがありますか？</div>
+            <div class="options">
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q18" value="1" required>
+                        まったくない（1点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q18" value="2">
+                        ときどきある（2点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q18" value="3">
+                        いつもそうだ（3点）
+                    </label>
+                </div>
+            </div>
+            <button onclick="nextQuestion(18)">次へ</button>
+        </div>
+        
+        <div class="question" id="question19">
+            <div class="question-title">チェック⑲</div>
+            <div class="question-text">気分の変動が激しくなり、以前より怒りっぽくなったり、不安になったりすることがありますか？</div>
+            <div class="options">
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q19" value="1" required>
+                        まったくない（1点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q19" value="2">
+                        ときどきある（2点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q19" value="3">
+                        いつもそうだ（3点）
+                    </label>
+                </div>
+            </div>
+            <button onclick="nextQuestion(19)">次へ</button>
+        </div>
+        
+        <div class="question" id="question20">
+            <div class="question-title">チェック⑳</div>
+            <div class="question-text">新しい電化製品やスマートフォンなどの操作を覚えるのが難しいと感じますか？</div>
+            <div class="options">
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q20" value="1" required>
+                        まったくない（1点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q20" value="2">
+                        ときどきある（2点）
+                    </label>
+                </div>
+                <div class="option">
+                    <label>
+                        <input type="radio" name="q20" value="3">
+                        いつもそうだ（3点）
+                    </label>
+                </div>
+            </div>
             <button onclick="showResult()">結果を見る</button>
         </div>
         
         <div id="result">
             <div class="result-title">あなたのセルフチェック結果</div>
-            <div class="result-score">総合スコア: <span id="score"></span>点 / 36点</div>
+            <div class="result-score">総合スコア: <span id="score"></span>点 / 60点</div>
             <div class="result-description" id="result-description"></div>
             
             <div class="consultation">
@@ -520,12 +728,12 @@
             
             // Update progress bar
             const progress = document.getElementById('progress');
-            progress.style.width = `${(questionNumber / 12) * 100}%`;
+            progress.style.width = `${(questionNumber / 20) * 100}%`;
         }
         
         function showResult() {
             // Validate last answer
-            const selectedOption = document.querySelector('input[name="q12"]:checked');
+            const selectedOption = document.querySelector('input[name="q20"]:checked');
             
             if (!selectedOption) {
                 alert("回答を選択してください");
@@ -536,7 +744,7 @@
             currentScore += parseInt(selectedOption.value);
             
             // Hide last question
-            document.getElementById('question12').classList.remove('active');
+            document.getElementById('question20').classList.remove('active');
             
             // Update progress bar to 100%
             const progress = document.getElementById('progress');
@@ -549,13 +757,13 @@
             const result = document.getElementById('result');
             const resultDescription = document.getElementById('result-description');
             
-            if (currentScore <= 16) {
+            if (currentScore <= 26) {
                 result.className = 'low-risk';
                 resultDescription.innerHTML = `
                     <p>現時点では認知症の可能性は低いと考えられます。</p>
                     <p>健康的な生活習慣を続け、定期的な認知機能チェックをおすすめします。</p>
                 `;
-            } else if (currentScore <= 26) {
+            } else if (currentScore <= 44) {
                 result.className = 'medium-risk';
                 resultDescription.innerHTML = `
                     <p>軽度の認知機能の低下が見られる可能性があります。</p>
